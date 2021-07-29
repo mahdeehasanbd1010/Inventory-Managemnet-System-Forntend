@@ -1,0 +1,76 @@
+<div style="background: rgb(144,238,144);"> 
+    <table class="table" style="transform: translate(10%, 0%);">
+        <tbody>
+          <tr>
+            <td class="align-bottom" (click) = "goToHomePage()"><b style="font-size: 30px;">Inventory Management</b></td>
+            <td>
+              <div class="container">
+                <button class="btn btn-danger" (click)="logout()">Logout</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+  <table class="table" style="width: max-content; margin: auto;">
+    <tbody>
+      <tr>
+        <td class="align-bottom">
+          <button type="button" class="btn btn-primary" (click)="allProducts()">
+            All Products
+          </button>
+        </td>
+        <td class="align-bottom">
+          <button type="button" class="btn btn-primary" (click)="addProduct()">
+            Add Product
+          </button>
+        </td>
+        <td class="align-bottom">
+            &nbsp; &nbsp; &nbsp; &nbsp;
+          <input type='date' [(ngModel)]="dateTime"/>&nbsp; &nbsp;
+          <button class="btn btn-primary" (click)="trnasectionReport(true)">Daily Report</button>
+        </td>
+        <td class="align-bottom">
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <input type='month' [(ngModel)]="dateTime"/>&nbsp; &nbsp;
+          <button class="btn btn-primary" (click)="trnasectionReport(false)">Monthly Report</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br><br><br><br><br>
+
+<form class="productForm">
+    <h2>Add Product</h2>
+    <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control input-md" id="productName" name="productName" [(ngModel)]="product.ProductName" required autofocus>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="productDescription">Product Description</label>
+        <input type="text" class="form-control input-md" id="productDescription" name="productDescription" [(ngModel)]="product.ProductDescription" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="unit">Unit</label>
+        <input type="text" class="form-control input-md" id="unit" name="unit" [(ngModel)]="product.Unit" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="unitPrice">UnitPrice</label>
+        <input type="text" class="form-control input-md" id="unitPrice" name="unitPrice" [(ngModel)]="product.UnitPrice" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-success btn-md" (click)="saveProduct()">
+    </div>
+</form>
+
+
+
+

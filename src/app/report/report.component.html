@@ -1,0 +1,71 @@
+<div style="background: rgb(144,238,144);"> 
+    <table class="table" style="transform: translate(10%, 0%);">
+        <tbody>
+          <tr>
+            <td class="align-bottom" (click)="goToHomePage()"><b style="font-size: 30px;">Inventory Management</b></td>
+            <td>
+              <div class="container">
+                <button class="btn btn-danger" (click)="logout()">Logout</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+  
+<div class="container">
+    <table class="table" style="width: max-content; margin: auto;">
+      <tbody>
+        <tr>
+          <td class="align-bottom">
+            <button type="button" class="btn btn-primary" (click)="allProducts()">
+              All Products
+            </button>
+          </td>
+          <td class="align-bottom">
+            <button type="button" class="btn btn-primary" (click)="addProduct()">
+              Add Product
+            </button>
+          </td>
+          <td class="align-bottom">
+              &nbsp; &nbsp; &nbsp; &nbsp;
+            <input type='date' [(ngModel)]="dateTime"/>&nbsp; &nbsp;
+            <button class="btn btn-primary" (click)="trnasectionReport(true)">Daily Report</button>
+          </td>
+          <td class="align-bottom">
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <input type='month' [(ngModel)]="dateTime"/>&nbsp; &nbsp;
+            <button class="btn btn-primary" (click)="trnasectionReport(false)">Monthly Report</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  
+<br><br><br><br><br>
+    
+
+<h2 style="text-align:center">Reports</h2>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Product Id</th>
+        <th scope="col">Type</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Transection Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let transaction of transactions">
+        <th scope="row">{{transaction.id}}</th>
+        <td>{{transaction.productId}}</td>
+        <td>{{transaction.type}}</td>
+        <td>{{transaction.quantity}}</td>
+        <td>{{transaction.totalPrice  + ' ৳'}}</td>
+        <td>{{transaction.transactionDate | date}}</td>
+      </tr>
+    </tbody>
+</table>

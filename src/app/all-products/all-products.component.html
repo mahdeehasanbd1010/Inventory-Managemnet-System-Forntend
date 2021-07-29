@@ -1,0 +1,90 @@
+<div style="background: rgb(144,238,144);"> 
+  <table class="table" style="transform: translate(10%, 0%);">
+      <tbody>
+        <tr>
+          <td class="align-bottom" (click)="goToHomePage()"><b style="font-size: 30px;">Inventory Management</b></td>
+          <td>
+            <div class="container">
+              <button class="btn btn-danger" (click)="logout()">Logout</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<div class="container">
+  <table class="table" style="width: max-content; margin: auto;">
+    <tbody>
+      <tr>
+        <td class="align-bottom">
+          <button type="button" class="btn btn-primary" (click)="allProducts()">
+            All Products
+          </button>
+        </td>
+        <td class="align-bottom">
+          <button type="button" class="btn btn-primary" (click)="addProduct()">
+            Add Product
+          </button>
+        </td>
+        <td class="align-bottom">
+            &nbsp; &nbsp; &nbsp; &nbsp;
+          <input type='date' [(ngModel)]="dateTime"/>&nbsp; &nbsp;
+          <button class="btn btn-primary" (click)="trnasectionReport(true)">Daily Report</button>
+        </td>
+        <td class="align-bottom">
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <input type='month' [(ngModel)]="dateTime"/>&nbsp; &nbsp;
+          <button class="btn btn-primary" (click)="trnasectionReport(false)">Monthly Report</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br><br><br><br><br>
+
+<h2 style="text-align:center">All Products</h2>
+<div class="container">
+  <table class="table" style="width: max-content; margin: auto;">
+    <tbody>
+      <tr>
+        <td class="align-bottom">
+          <button class="btn btn-dark" (click)="prchaseProduct()">Purchase</button>
+        </td>
+        <td class="align-bottom">
+          <button class="btn btn-danger" (click)="saleProduct()"> Sale </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Description</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let product of products">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.productName}}</td>
+        <td>{{product.productDescription}}</td>
+        <td>{{product.unit}}</td>
+        <td>{{product.unitPrice + ' ৳'}}</td>
+        <td>{{product.quantity}} <b style="color: rgb(255, 0, 0);">{{product.quantity==0? 'Stock Out' : ''}}</b></td>
+        <td>
+          <button class="btn btn-dark" (click)="updateProduct(product.id)">Edit</button>
+          &nbsp;&nbsp;
+          <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

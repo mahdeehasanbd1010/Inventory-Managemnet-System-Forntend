@@ -1,0 +1,105 @@
+<body>
+ <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="email" class="label">Email</label>
+					<input type="text" class="input" id="email" name="email" [(ngModel)]="user.Email" required autofocus>
+				</div>
+				<div class="group">
+					<label for="password" class="label">Password</label>
+					<input type="password" class="input" data-type="password"id="password" name="password" [(ngModel)]="user.Password" required>
+				</div>
+				<!--<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>-->
+				<div class="group">
+					<input type="submit" class="button" value="Sign In" (click)="loginToServer()">
+				</div>
+				<!--<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="#forgot">Forgot Password?</a>
+				</div>--> 
+				<div class="foot-lnk">
+					<p>Not have Account?
+					<label for="tab-2"> <a>Create Account </a></label>
+				</div>
+				<div *ngIf="invalidLogin" class="alert alert-danger">Invalid email or password</div> 
+			</div>
+			<div class="sign-up-htm">
+				<div class="group">
+					<label for="firstName" class="label">First Name</label>
+					<input type="text" class="input" id="firstName" name="firstName" [(ngModel)]="user.FirstName" required autofocus>
+				</div>
+                <div class="group">
+					<label for="lastName" class="label">Last Name</label>
+					<input type="text" class="input" id="lastName" name="lastName" [(ngModel)]="user.LastName" required>
+				</div>
+                <div class="group">
+					<label for="email" class="label">Email</label>
+					<input type="text" class="input" id="email" name="email" [(ngModel)]="user.Email" required autofocus>
+				</div>
+				<div class="group">
+					<label for="password" class="label">Password</label>
+					<input type="password" class="input" data-type="password"id="password" name="password" [(ngModel)]="user.Password" required>
+				</div>
+				<div class="group">
+					<label for="confirmPassword" class="label">Confirm Password</label>
+					<input type="confirmPassword" class="input" data-type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="user.ConfirmPassword" required>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign Up" (click)="signUpToServer()">
+				</div>
+				<div class="foot-lnk">
+					<label for="tab-1"><a>Already Member?</a></label>
+				</div>
+				<div *ngIf="invalidInput" class="alert alert-danger">Invalid input</div>
+				<div *ngIf="!invalidSignUp" class="alert alert-success">Successfully created</div>
+			</div>
+		</div>
+
+	</div>
+ </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<form class="form-signin">
+    <div class="container-fluid">
+        <h2 class="form-signin-heading">Login</h2>
+        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid email or password</div>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="email" class="sr-only">Email</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.Email" placeholder="Email" required autofocus>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.Password" placeholder="Password" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary btn-block btn-lg" (click)="loginToServer()">
+    </div>
+</form>-->

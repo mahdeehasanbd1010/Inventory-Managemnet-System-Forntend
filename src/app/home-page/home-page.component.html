@@ -1,0 +1,49 @@
+<div style="background: rgb(144,238,144);"> 
+  <table class="table" style="transform: translate(10%, 0%);">
+      <tbody>
+        <tr>
+          <td class="align-bottom" (click)="goToHomePage()"><b style="font-size: 30px;">Inventory Management</b></td>
+          <td>
+            <div class="container" *ngIf="logged">
+              <button class="btn btn-danger" (click)="logout()">Logout</button>
+            </div>
+            <div class="container" *ngIf="!logged">
+              <button class="btn btn-success" (click)="login()">Login</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<br><br>
+
+<div class="container" *ngIf="logged">
+  <table class="table" style="width: max-content; margin: auto;">
+    <tbody>
+      <tr>
+        <td class="align-bottom">
+          <button type="button" class="btn btn-primary" (click)="allProducts()">
+            All Products
+          </button>
+        </td>
+        <td class="align-bottom">
+          <button type="button" class="btn btn-primary" (click)="addProduct()">
+            Add Product
+          </button>
+        </td>
+        <td class="align-bottom">
+            &nbsp; &nbsp; &nbsp; &nbsp;
+          <input type='date' [(ngModel)]="dateTime"/>&nbsp; &nbsp;
+          <button class="btn btn-primary" (click)="trnasectionReport(true)">Daily Report</button>
+        </td>
+        <td class="align-bottom">
+          &nbsp; &nbsp; &nbsp; &nbsp;
+          <input type='month' [(ngModel)]="dateTime"/>&nbsp; &nbsp;
+          <button class="btn btn-primary" (click)="trnasectionReport(false)">Monthly Report</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br><br><br><br><br>

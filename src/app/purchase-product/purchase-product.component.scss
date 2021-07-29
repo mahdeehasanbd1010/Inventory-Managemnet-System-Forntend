@@ -1,0 +1,12 @@
+.purchaseForm {
+    min-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+  }
+  @media (max-width: 500px) {
+    .purchaseForm {
+      min-width: 90%;
+    }
+  }
